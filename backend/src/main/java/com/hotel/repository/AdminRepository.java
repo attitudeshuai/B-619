@@ -1,0 +1,24 @@
+package com.hotel.repository;
+
+import com.hotel.entity.Admin;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+/**
+ * 管理员数据访问层
+ */
+@Repository
+public interface AdminRepository extends JpaRepository<Admin, Long> {
+
+    /**
+     * 根据用户名查找管理员
+     */
+    Optional<Admin> findByUsername(String username);
+
+    /**
+     * 检查用户名是否存在
+     */
+    boolean existsByUsername(String username);
+}
